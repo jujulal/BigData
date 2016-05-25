@@ -12,7 +12,10 @@ public class MyReducer {
 		List<Pair<String,Integer>> mappedObj = mapperObj.maperInput();
 		
 		MyReducer reducerObj = new MyReducer();
-		reducerObj.mergeList(mappedObj).stream().sorted().forEach(System.out::println);
+		List<Pair<String,List<Integer>>> tmpList = reducerObj.mergeList(mappedObj);
+		
+		tmpList.stream().sorted().forEach(System.out::println);
+		
 	}
 
 	public List<Pair<String,List<Integer>>> mergeList(
@@ -24,10 +27,12 @@ public class MyReducer {
 			//searching for existing pair
 			Pair mergeObj = this.getPair((String)pairObj.getKey(), mergeWordList);
 			if(mergeObj == null){
-				mergeObj = new Pair((String)mergeObj.getKey(), new ArrayList<>());
+				mergeObj = new Pair((String)pairObj.getKey(), new ArrayList<>());
 				mergeWordList.add(mergeObj);
 			}
+			
 			((List)mergeObj.getValue()).add(pairObj.getValue());
+			//System.out.println(mergeObj.getValue());
 		}
 		
 		return mergeWordList;
