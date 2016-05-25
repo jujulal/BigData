@@ -14,14 +14,14 @@ public class MyMapper {
 	public static void main(String []args){
 		MyMapper mapperObj = new MyMapper(); 
 		
-		mapperObj.printMapperValue(mapperObj.maperInput());
+		mapperObj.printMapperValue(mapperObj.maperInput("c:/txtFile/testDataForW1D1.txt"));
 	}
-	public List<Pair<String,Integer>> maperInput() {
+	public List<Pair<String,Integer>> maperInput(String filename) {
 
 		try {
 			List<Pair<String, Integer>> wordList = new ArrayList<>();
 
-			FileReader fileReader = new FileReader("c:/txtFile/testDataForW1D1.txt");
+			FileReader fileReader = new FileReader(filename);
 			BufferedReader bufferReader = new BufferedReader(fileReader);
 			String line;
 
