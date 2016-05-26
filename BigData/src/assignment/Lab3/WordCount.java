@@ -1,8 +1,5 @@
 package assignment.Lab3;
 
-import assignment.Lab2.MyMapper;
-import assignment.Lab2.MyReducer;
-import assignment.Lab2.Pair;
 
 public class WordCount {
 
@@ -17,22 +14,24 @@ public class WordCount {
 	public void shuffleSort(){
 		
 		//initialing reducers instance
-		for(int i=0;i<reducers.length;i++){
+		/*for(int i=0;i<reducers.length;i++){
 			reducers[i]=new MyReducer();
-		}
+		}*/
 		
 		//initialing mappers instance
 		for(int i=0;i<mappers.length;i++){
 			mappers[i]= new MyMapper("c:/txtFile/file"+i+".txt");
-			//mappers[i].maperInput();
+			//mappers[i].maperInput().stream().sorted().forEach(System.out::println);
+			reducers[i] = new MyReducer(mappers[i].maperInput());
 			
-			for(Pair<String,Integer> m: mappers[i].maperInput()){
-				reducers[this.getPartition(m.getKey())].addMappedObj(m);
-			}
+			//for(Pair<String,Integer> m: mappers[i].maperInput()){
+			//	reducers[this.getPartition(m.getKey())].addMappedObj(m);
+			//}
 		}
 		for(int i=0;i<reducers.length;i++){
 			System.out.println("Reducer " + i + " output:");
 			//for(List<Pair<String,Integer>> p: reducers[i].mergeList(wordList))
+			reducers[i].mergeList(wordList)
 		}
 	}
 	
