@@ -10,18 +10,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MyMapper {
-
+	String fileName;
+	public MyMapper(String fileName){
+		this.fileName = fileName;
+	}
+	
 	public static void main(String []args){
-		MyMapper mapperObj = new MyMapper(); 
+		MyMapper mapperObj = new MyMapper("c:/txtFile/testDataForW1D1.txt"); 
 		
 		mapperObj.printMapperValue(mapperObj.maperInput());
 	}
+	
 	public List<Pair<String,Integer>> maperInput() {
 
 		try {
 			List<Pair<String, Integer>> wordList = new ArrayList<>();
 
-			FileReader fileReader = new FileReader("c:/txtFile/testDataForW1D1.txt");
+			FileReader fileReader = new FileReader(fileName);
 			BufferedReader bufferReader = new BufferedReader(fileReader);
 			String line;
 

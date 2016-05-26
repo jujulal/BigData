@@ -5,20 +5,19 @@ import java.util.List;
 import assignment.Lab2.*;
 
 public class MyReducer {
-	private List<Pair<String, List<Integer>>> groupedList = new ArrayList<>();
-
-	public static void main(String[] args) {
-		MyMapper mapperObj = new MyMapper();
-		List<Pair<String, Integer>> mappedObj = mapperObj.maperInput();
-
-		MyReducer reducerObj = new MyReducer();
-		List<Pair<String, List<Integer>>> tmpList = reducerObj
-				.mergeList(mappedObj);
-
-		//tmpList.stream().sorted().forEach(System.out::println);
-		List<Pair<String,Integer>> reducedWList = reducerObj.reduceMergeList(tmpList);
-		reducedWList.stream().sorted().forEach(System.out::println);
+	
+	private List<Pair<String, List<Integer>>> groupedList;
+	private List<Pair<String, Integer>> mappedObjs;
+	
+	public MyReducer(){
+		groupedList = new ArrayList<>();
+		mappedObjs = new ArrayList<>();
 	}
+	public MyReducer(List<Pair<String,Integer>> mappedObjs){
+		this.mappedObjs = mappedObjs;
+	}
+	
+	
 
 	public List<Pair<String, Integer>> reduceMergeList(
 			List<Pair<String, List<Integer>>> listOfWords) {
@@ -65,5 +64,22 @@ public class MyReducer {
 			}
 		}
 		return null;
+	}
+	
+	public void addMappedObj(Pair<String, Integer> p){
+		mappedObjs.add(p);
+	}
+	
+	public static void main(String[] args) {
+		MyMapper mapperObj = new MyMapper("c:/txtFile/testDataForW1D1.txt");
+		List<Pair<String, Integer>> mappedObj = mapperObj.maperInput();
+
+		MyReducer reducerObj = new MyReducer();
+		List<Pair<String, List<Integer>>> tmpList = reducerObj
+				.mergeList(mappedObj);
+
+		//tmpList.stream().sorted().forEach(System.out::println);
+		List<Pair<String,Integer>> reducedWList = reducerObj.reduceMergeList(tmpList);
+		reducedWList.stream().sorted().forEach(System.out::println);
 	}
 }
