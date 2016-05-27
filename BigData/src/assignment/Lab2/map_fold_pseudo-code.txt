@@ -15,5 +15,5 @@ if(NotFound)
 	foldedWords.add(new Word)
 else
 	foldedWord.getValue.add(count)
-	
+return foldedWords	
 	
