@@ -55,10 +55,10 @@ public class WordCount {
 	
 	public static void main(String[] arg){
 		WordCount wordCountObj = new WordCount(3,4);
-		
+		String filePath = System.getProperty("user.dir");
 		MyMapper mappers[]= new MyMapper[3];
 		for(int i=0;i<mappers.length;i++){
-			mappers[i] = new MyMapper("c:/txtFile/file"+i+".txt");
+			mappers[i] = new MyMapper(filePath + "/src/assignment/Lab3/file"+i+".txt");
 		}
 		
 		wordCountObj.buildMappers(mappers);	

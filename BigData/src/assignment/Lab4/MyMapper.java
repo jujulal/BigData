@@ -21,10 +21,10 @@ public class MyMapper {
 		mapperObj.printMapperValue(mapperObj.map());
 	}
 	
-	public List<Pair<String,Integer>> map() {
+	public List<Pair<Character,Integer>> map() {
 
 		try {
-			List<Pair<String, Integer>> wordList = new ArrayList<>();
+			List<Pair<Character, List<Integer>>> wordList = new ArrayList<>();
 
 			FileReader fileReader = new FileReader(fileName);
 			BufferedReader bufferReader = new BufferedReader(fileReader);
@@ -49,7 +49,7 @@ public class MyMapper {
 								.replace('"', '\0')
 								.trim()
 								.toLowerCase();
-						wordList.add(new Pair<String, Integer>(myKey, 1));
+						wordList.add(new Pair<Character, Pair<Integer, Integer>(myKey.charAt(0),new Pair(myKey.length(),1)));
 					}
 				}
 
@@ -68,7 +68,7 @@ public class MyMapper {
 
 	}
 	
-	public void printMapperValue(List<Pair<String,Integer>> wordList){
+	public void printMapperValue(List<Pair<Character,Integer>> wordList){
 		System.out.println("Sorted List");
 		wordList
 			.stream()
