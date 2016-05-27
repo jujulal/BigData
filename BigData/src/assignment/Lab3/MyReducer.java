@@ -22,9 +22,9 @@ public class MyReducer {
 		listOfPairs.add(p);
 	}
 
-	public Pair getPair(String key,
+	public Pair<String, List<Integer>> getPair(String key,
 			List<Pair<String, List<Integer>>> mergeWordList) {
-		for (Pair p : mergeWordList) {
+		for (Pair<String, List<Integer>> p : mergeWordList) {
 			if (p.getKey().equals(key)) {
 				return p;
 			}
@@ -33,12 +33,15 @@ public class MyReducer {
 	}
 	
 	public List<Pair<String,List<Integer>>> merge(){
-		for(Pair p:listOfPairs){
-			Integer val=0;
-			for(int v: p.getValue(){
-				val +=v;
-			}
-			groupedListPair.add(new Pair(p.getKey(),val));
+		for(Pair<String, Integer> p:listOfPairs){
+			Pair<String, List<Integer>> tempMergedPair =this.getPair((String)p.getKey(), groupedListPair); 
+			if(tempMergedPair == null)
+				{
+					tempMergedPair = new Pair<String,List<Integer>>((String)p.getKey(), new ArrayList<>());
+					groupedListPair.add(tempMergedPair);
+				}
+			//((List)tempMergedPair.getValue()).add(tempMergedPair.getValue());
+			//groupedListPair
 		}
 		return groupedListPair;
 	}

@@ -1,0 +1,11 @@
+Map and Fold pseudo-code 
+
+//===>>> for the Map function: 
+method map(document d)
+for each word d.split()
+list.add(word)
+return list
+
+
+//=====>> for reduce function for folding purpose 
+method reduce(list of words)
