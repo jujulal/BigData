@@ -8,4 +8,12 @@ return list
 
 
 //=====>> for reduce function for folding purpose 
-method reduce(list of words)
+method reduce(list of words, list of foldedWords)
+for each(list of words)
+search word in foledWords
+if(NotFound)
+	foldedWords.add(new Word)
+else
+	foldedWord.getValue.add(count)
+	
+	
