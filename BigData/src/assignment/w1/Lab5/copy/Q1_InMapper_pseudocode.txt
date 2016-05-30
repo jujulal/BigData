@@ -1,0 +1,18 @@
+
+==>>>> Pseudocode for InMapper Pair Approach for two mapper & four reducer
+<<<<<<<<<================================================================>>>>>>>>>>>>>
+
+class Mapper
+  method initilization
+    H{Pair(k,v), int value}  //Associative array
+  
+  method map(key k, input doc)
+    for all item w in doc d do
+      for all term u in Neighbour(w) do
+        H{Pair(w,u)}
+  
+  method close
+    for all Pair(w,u) in H do
+    Emit(Pair(w,u), count(H{Pair(w,u)}
+    
+     
