@@ -1,4 +1,4 @@
-package assignment.w1.Lab4.copy;
+package assignment.w1.Lab2;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,13 +18,13 @@ public class MyMapper {
 	public static void main(String []args){
 		MyMapper mapperObj = new MyMapper("c:/txtFile/testDataForW1D1.txt"); 
 		
-		mapperObj.printMapperValue(mapperObj.map());
+		mapperObj.printMapperValue(mapperObj.maperInput());
 	}
 	
-	public List<Pair<Character,Integer>> map() {
+	public List<Pair<String,Integer>> maperInput() {
 
 		try {
-			List<Pair<Character, List<Integer>>> wordList = new ArrayList<>();
+			List<Pair<String, Integer>> wordList = new ArrayList<>();
 
 			FileReader fileReader = new FileReader(fileName);
 			BufferedReader bufferReader = new BufferedReader(fileReader);
@@ -49,7 +49,7 @@ public class MyMapper {
 								.replace('"', '\0')
 								.trim()
 								.toLowerCase();
-						wordList.add(new Pair<Character, Pair<Integer, Integer>(myKey.charAt(0),new Pair(myKey.length(),1)));
+						wordList.add(new Pair<String, Integer>(myKey, 1));
 					}
 				}
 
@@ -68,7 +68,7 @@ public class MyMapper {
 
 	}
 	
-	public void printMapperValue(List<Pair<Character,Integer>> wordList){
+	public void printMapperValue(List<Pair<String,Integer>> wordList){
 		System.out.println("Sorted List");
 		wordList
 			.stream()

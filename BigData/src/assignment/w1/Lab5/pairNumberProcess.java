@@ -1,4 +1,4 @@
-package assignment.w1.Lab5.copy;
+package assignment.w1.Lab5;
 
 import java.io.File;
 import java.util.ArrayList;

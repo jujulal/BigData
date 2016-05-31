@@ -1,4 +1,4 @@
-package assignment.w1.Lab3.copy;
+package assignment.w1.Lab3;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

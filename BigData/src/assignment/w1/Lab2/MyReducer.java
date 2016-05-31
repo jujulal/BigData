@@ -1,8 +1,8 @@
-package assignment.w1.Lab2.copy;
+package assignment.w1.Lab2;
 
 import java.util.ArrayList;
 import java.util.List;
-import assignment.Lab2.*;
+import assignment.w1.Lab2.*;
 
 public class MyReducer {
 	

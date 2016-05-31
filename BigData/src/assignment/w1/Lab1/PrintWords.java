@@ -1,4 +1,4 @@
-package assignment.w1.Lab1.copy;
+package assignment.w1.Lab1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

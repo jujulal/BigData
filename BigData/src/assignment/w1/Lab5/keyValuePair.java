@@ -1,4 +1,4 @@
-package assignment.w1.Lab5.copy;
+package assignment.w1.Lab5;
 
 public class keyValuePair<k,v> {
 	private k key;

@@ -1,4 +1,4 @@
-package assignment.w1.Lab3.copy;
+package assignment.w1.Lab3;
 
 public class Pair<k extends Comparable<k>,v> implements Comparable<Pair<k,v>> {
 	private k key; 
