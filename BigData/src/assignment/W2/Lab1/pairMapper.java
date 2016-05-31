@@ -107,7 +107,7 @@ public class pairMapper {
 		// System.out.println(filePath);
 		pairMapper obj = new pairMapper(filePath);
 		obj.mapValues();
-		obj.printUnSortedList();
+		obj.inMapperPairs().stream().forEach(System.out::println);
 		
 	}
 }
